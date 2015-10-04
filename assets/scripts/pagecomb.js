@@ -137,6 +137,7 @@ function PopView(url)
 	if ($('.container').length <= 1) return;
 	var old = $($('.container')[$('.container').length - 1]);
 	var container = $($('.container')[$('.container').length - 2]);
+	container.css('margin-left', 0);
 	var performance = GetInversePerformance(__performance);
 	if (performance == 'slideLeft') {
 		container.css('margin-left', $(window).width());
@@ -286,6 +287,7 @@ function RedirectTo(url, performance)
 		var container = $(tmp);
 		var old = $($('.container')[$('.container').length - 1]);
 		container.addClass('pagecomb-entering');
+		var move = 0;
 		if (performance == 'slideLeft') {
 			container.css('margin-left', $(window).width());
 			container.find('.navigator').addClass('alpha');
@@ -296,6 +298,7 @@ function RedirectTo(url, performance)
 			container.find('.navigator .right').css('margin-left', $(window).width() / 4);
 			container.find('.navigator .right').css('opacity', 0);
 			
+			move = -$(window).width() / 4;
 			old.find('.navigator .title').css('margin-left', -$(window).width() / 4);
 			old.find('.navigator .title').css('opacity', 0);
 			old.find('.navigator .left').css('margin-left', -$(window).width() / 4);
@@ -312,6 +315,7 @@ function RedirectTo(url, performance)
 			container.find('.navigator .right').css('margin-left', -$(window).width() / 4);
 			container.find('.navigator .right').css('opacity', 0);
 			
+			move = $(window).width() / 4;
 			old.find('.navigator .title').css('margin-left', $(window).width() / 4);
 			old.find('.navigator .title').css('opacity', 0);
 			old.find('.navigator .left').css('margin-left', $(window).width() / 4);
@@ -352,6 +356,8 @@ function RedirectTo(url, performance)
 			container.find('.navigator .right').css('margin-left', -$(window).width() / 4);
 			container.find('.navigator .right').css('opacity', 0);
 			
+			move = -$(window).width() / 4;
+			old.css('margin-left', -$(window).width() / 4);
 			old.find('.navigator .title').css('margin-left', $(window).width() / 4);
 			old.find('.navigator .title').css('opacity', 0);
 			old.find('.navigator .left').css('margin-left', $(window).width() / 4);
@@ -369,6 +375,7 @@ function RedirectTo(url, performance)
 			container.find('.navigator .right').css('margin-left', $(window).width() / 4);
 			container.find('.navigator .right').css('opacity', 0);
 			
+			move = $(window).width() / 4;
 			old.find('.navigator .title').css('margin-left', -$(window).width() / 4);
 			old.find('.navigator .title').css('opacity', 0);
 			old.find('.navigator .left').css('margin-left', -$(window).width() / 4);
@@ -406,7 +413,7 @@ function RedirectTo(url, performance)
 		setTimeout(function () { 
 			container.css('margin-left', 0); 
 			container.css('margin-top', 0); 
-			
+			old.css('margin-left', move);
 			container.find('.navigator .title').css('opacity', 1);
 			container.find('.navigator .title').css('margin-left', 0);
 			container.find('.navigator .left').css('opacity', 1);
