@@ -158,11 +158,11 @@ function PopView(url)
 	}
 	else if (performance == 'slideRight') {
 		container.css('margin-left', -$(window).width());
-		container.find('.navigator .title').css('margin-left', -$(window).width() / 2);
+		container.find('.navigator .title').css('margin-left', -$(window).width() / 4);
 		container.find('.navigator .title').css('opacity', 0);
-		container.find('.navigator .left').css('margin-left', -$(window).width() / 2);
+		container.find('.navigator .left').css('margin-left', -$(window).width() / 4);
 		container.find('.navigator .left').css('opacity', 0);
-		container.find('.navigator .right').css('margin-left', -$(window).width() / 2);
+		container.find('.navigator .right').css('margin-left', -$(window).width() / 4);
 		container.find('.navigator .right').css('opacity', 0);
 		
 		old.find('.navigator .title').css('margin-left', $(window).width() / 4);
@@ -214,11 +214,11 @@ function PopView(url)
 	else if (performance == 'leaveLeft') {
 		old.css('z-index', 100);
 		old.css('margin-left', -$(window).width());
-		container.find('.navigator .title').css('margin-left', $(window).width() / 2);
+		container.find('.navigator .title').css('margin-left', $(window).width() / 4);
 		container.find('.navigator .title').css('opacity', 0);
-		container.find('.navigator .left').css('margin-left', $(window).width() / 2);
+		container.find('.navigator .left').css('margin-left', $(window).width() / 4);
 		container.find('.navigator .left').css('opacity', 0);
-		container.find('.navigator .right').css('margin-left', $(window).width() / 2);
+		container.find('.navigator .right').css('margin-left', $(window).width() / 4);
 		container.find('.navigator .right').css('opacity', 0);
 		
 		old.find('.navigator .title').css('margin-left', -$(window).width() / 4);
@@ -306,11 +306,11 @@ function RedirectTo(url, performance)
 		}
 		else if (performance == 'slideRight') {
 			container.css('margin-left', -$(window).width());
-			container.find('.navigator .title').css('margin-left', -$(window).width() / 2);
+			container.find('.navigator .title').css('margin-left', -$(window).width() / 4);
 			container.find('.navigator .title').css('opacity', 0);
-			container.find('.navigator .left').css('margin-left', -$(window).width() / 2);
+			container.find('.navigator .left').css('margin-left', -$(window).width() / 4);
 			container.find('.navigator .left').css('opacity', 0);
-			container.find('.navigator .right').css('margin-left', -$(window).width() / 2);
+			container.find('.navigator .right').css('margin-left', -$(window).width() / 4);
 			container.find('.navigator .right').css('opacity', 0);
 			
 			old.find('.navigator .title').css('margin-left', $(window).width() / 4);
@@ -363,11 +363,11 @@ function RedirectTo(url, performance)
 		else if (performance == 'leaveLeft') {
 			old.css('z-index', 100);
 			old.css('margin-left', -$(window).width());
-			container.find('.navigator .title').css('margin-left', $(window).width() / 2);
+			container.find('.navigator .title').css('margin-left', $(window).width() / 4);
 			container.find('.navigator .title').css('opacity', 0);
-			container.find('.navigator .left').css('margin-left', $(window).width() / 2);
+			container.find('.navigator .left').css('margin-left', $(window).width() / 4);
 			container.find('.navigator .left').css('opacity', 0);
-			container.find('.navigator .right').css('margin-left', $(window).width() / 2);
+			container.find('.navigator .right').css('margin-left', $(window).width() / 4);
 			container.find('.navigator .right').css('opacity', 0);
 			
 			old.find('.navigator .title').css('margin-left', -$(window).width() / 4);
