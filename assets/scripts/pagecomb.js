@@ -139,41 +139,142 @@ function PopView(url)
 	var old = $($('.container')[$('.container').length - 1]);
 	var container = $($('.container')[$('.container').length - 2]);
 	var performance = GetInversePerformance(__performance);
-	if (performance == 'slideLeft')
+	if (performance == 'slideLeft') {
 		container.css('margin-left', $(window).width());
-	else if (performance == 'slideRight')
+		container.find('.navigator').addClass('alpha');
+		container.find('.navigator .title').css('margin-left', $(window).width() / 4);
+		container.find('.navigator .title').css('opacity', 0);
+		container.find('.navigator .left').css('margin-left', $(window).width() / 4);
+		container.find('.navigator .left').css('opacity', 0);
+		container.find('.navigator .right').css('margin-left', $(window).width() / 4);
+		container.find('.navigator .right').css('opacity', 0);
+		
+		old.find('.navigator .title').css('margin-left', -$(window).width() / 4);
+		old.find('.navigator .title').css('opacity', 0);
+		old.find('.navigator .left').css('margin-left', -$(window).width() / 4);
+		old.find('.navigator .left').css('opacity', 0);
+		old.find('.navigator .right').css('margin-left', -$(window).width() / 4);
+		old.find('.navigator .right').css('opacity', 0);
+	}
+	else if (performance == 'slideRight') {
 		container.css('margin-left', -$(window).width());
-	else if (performance == 'slideUp')
+		container.find('.navigator .title').css('margin-left', -$(window).width() / 2);
+		container.find('.navigator .title').css('opacity', 0);
+		container.find('.navigator .left').css('margin-left', -$(window).width() / 2);
+		container.find('.navigator .left').css('opacity', 0);
+		container.find('.navigator .right').css('margin-left', -$(window).width() / 2);
+		container.find('.navigator .right').css('opacity', 0);
+		
+		old.find('.navigator .title').css('margin-left', $(window).width() / 4);
+		old.find('.navigator .title').css('opacity', 0);
+		old.find('.navigator .left').css('margin-left', $(window).width() / 4);
+		old.find('.navigator .left').css('opacity', 0);
+		old.find('.navigator .right').css('margin-left', $(window).width() / 4);
+		old.find('.navigator .right').css('opacity', 0);
+	}
+	else if (performance == 'slideUp') {
 		container.css('margin-top', $(window).height());
-	else if (performance == 'slideDown')
+		
+		container.find('.navigator .title').css('opacity', 0);
+		container.find('.navigator .left').css('opacity', 0);
+		container.find('.navigator .right').css('opacity', 0);
+		
+		old.find('.navigator .title').css('opacity', 0);
+		old.find('.navigator .left').css('opacity', 0);
+		old.find('.navigator .right').css('opacity', 0);
+	}
+	else if (performance == 'slideDown') {
 		container.css('margin-top', -$(window).height());
+		
+		container.find('.navigator .title').css('opacity', 0);
+		container.find('.navigator .left').css('opacity', 0);
+		container.find('.navigator .right').css('opacity', 0);
+		
+		old.find('.navigator .title').css('opacity', 0);
+		old.find('.navigator .left').css('opacity', 0);
+		old.find('.navigator .right').css('opacity', 0);
+	}
 	else if (performance == 'leaveRight') {
-		old.css('z-index', 999);
+		old.css('z-index', 100);
 		old.css('margin-left', $(window).width());
+		container.find('.navigator .title').css('margin-left', -$(window).width() / 4);
+		container.find('.navigator .title').css('opacity', 0);
+		container.find('.navigator .left').css('margin-left', -$(window).width() / 4);
+		container.find('.navigator .left').css('opacity', 0);
+		container.find('.navigator .right').css('margin-left', -$(window).width() / 4);
+		container.find('.navigator .right').css('opacity', 0);
+		
+		old.find('.navigator .title').css('margin-left', $(window).width() / 4);
+		old.find('.navigator .title').css('opacity', 0);
+		old.find('.navigator .left').css('margin-left', $(window).width() / 4);
+		old.find('.navigator .left').css('opacity', 0);
+		old.find('.navigator .right').css('margin-left', $(window).width() / 4);
+		old.find('.navigator .right').css('opacity', 0);
 	}
 	else if (performance == 'leaveLeft') {
-		old.css('z-index', 999);
+		old.css('z-index', 100);
 		old.css('margin-left', -$(window).width());
+		container.find('.navigator .title').css('margin-left', $(window).width() / 2);
+		container.find('.navigator .title').css('opacity', 0);
+		container.find('.navigator .left').css('margin-left', $(window).width() / 2);
+		container.find('.navigator .left').css('opacity', 0);
+		container.find('.navigator .right').css('margin-left', $(window).width() / 2);
+		container.find('.navigator .right').css('opacity', 0);
+		
+		old.find('.navigator .title').css('margin-left', -$(window).width() / 4);
+		old.find('.navigator .title').css('opacity', 0);
+		old.find('.navigator .left').css('margin-left', -$(window).width() / 4);
+		old.find('.navigator .left').css('opacity', 0);
+		old.find('.navigator .right').css('margin-left', -$(window).width() / 4);
+		old.find('.navigator .right').css('opacity', 0);
 	}
 	else if (performance == 'leaveUp') {
-		old.css('z-index', 999);
+		old.css('z-index', 100);
 		old.css('margin-top', -$(window).height());
+		
+		container.find('.navigator .title').css('opacity', 0);
+		container.find('.navigator .left').css('opacity', 0);
+		container.find('.navigator .right').css('opacity', 0);
+		
+		old.find('.navigator .title').css('opacity', 0);
+		old.find('.navigator .left').css('opacity', 0);
+		old.find('.navigator .right').css('opacity', 0);
 	}
 	else if (performance == 'leaveDown') {
-		old.css('z-index', 999);
+		old.css('z-index', 100);
 		old.css('margin-top', $(window).height());
+		
+		container.find('.navigator .title').css('opacity', 0);
+		container.find('.navigator .left').css('opacity', 0);
+		container.find('.navigator .right').css('opacity', 0);
+		
+		old.find('.navigator .title').css('opacity', 0);
+		old.find('.navigator .left').css('opacity', 0);
+		old.find('.navigator .right').css('opacity', 0);
 	}
+	setTimeout(function () { 
+		container.css('margin-left', 0); 
+		container.css('margin-top', 0); 
+		
+		container.find('.navigator .title').css('opacity', 1);
+		container.find('.navigator .title').css('margin-left', 0);
+		container.find('.navigator .left').css('opacity', 1);
+		container.find('.navigator .left').css('margin-left', 0);
+		container.find('.navigator .right').css('opacity', 1);
+		container.find('.navigator .right').css('margin-left', 0);
+	}, 150);
 	setTimeout(function () { 
 		if (performance.indexOf('leave') >= 0)
 			old.remove(); 
-		container.removeClass('pagecomb-entering');
+		
+		container.find('.navigator').removeClass('alpha');
 		
 		if (__currentControllerScript)
 			UnloadScript(__currentControllerScript);
 		
 		__currentControllerScript = '%/' + ConjectureControllerName(url) + '.js';
 		LoadScript('%/' + ConjectureControllerName(url) + '.js');
-	}, 450);
+	}, 300);
 }
 
 function RedirectTo(url, performance)
@@ -184,50 +285,149 @@ function RedirectTo(url, performance)
 			performance = 'slideLeft';
 		var tmp = $('#pagecomb-pool').contents().find('.container')[0];
 		var container = $(tmp);
-		var old = $('.container')[$('.container').length - 1];
+		var old = $($('.container')[$('.container').length - 1]);
 		container.addClass('pagecomb-entering');
-		if (performance == 'slideLeft')
+		if (performance == 'slideLeft') {
 			container.css('margin-left', $(window).width());
-		else if (performance == 'slideRight')
+			container.find('.navigator').addClass('alpha');
+			container.find('.navigator .title').css('margin-left', $(window).width() / 4);
+			container.find('.navigator .title').css('opacity', 0);
+			container.find('.navigator .left').css('margin-left', $(window).width() / 4);
+			container.find('.navigator .left').css('opacity', 0);
+			container.find('.navigator .right').css('margin-left', $(window).width() / 4);
+			container.find('.navigator .right').css('opacity', 0);
+			
+			old.find('.navigator .title').css('margin-left', -$(window).width() / 4);
+			old.find('.navigator .title').css('opacity', 0);
+			old.find('.navigator .left').css('margin-left', -$(window).width() / 4);
+			old.find('.navigator .left').css('opacity', 0);
+			old.find('.navigator .right').css('margin-left', -$(window).width() / 4);
+			old.find('.navigator .right').css('opacity', 0);
+		}
+		else if (performance == 'slideRight') {
 			container.css('margin-left', -$(window).width());
-		else if (performance == 'slideUp')
+			container.find('.navigator .title').css('margin-left', -$(window).width() / 2);
+			container.find('.navigator .title').css('opacity', 0);
+			container.find('.navigator .left').css('margin-left', -$(window).width() / 2);
+			container.find('.navigator .left').css('opacity', 0);
+			container.find('.navigator .right').css('margin-left', -$(window).width() / 2);
+			container.find('.navigator .right').css('opacity', 0);
+			
+			old.find('.navigator .title').css('margin-left', $(window).width() / 4);
+			old.find('.navigator .title').css('opacity', 0);
+			old.find('.navigator .left').css('margin-left', $(window).width() / 4);
+			old.find('.navigator .left').css('opacity', 0);
+			old.find('.navigator .right').css('margin-left', $(window).width() / 4);
+			old.find('.navigator .right').css('opacity', 0);
+		}
+		else if (performance == 'slideUp') {
 			container.css('margin-top', $(window).height());
-		else if (performance == 'slideDown')
+			
+			container.find('.navigator .title').css('opacity', 0);
+			container.find('.navigator .left').css('opacity', 0);
+			container.find('.navigator .right').css('opacity', 0);
+			
+			old.find('.navigator .title').css('opacity', 0);
+			old.find('.navigator .left').css('opacity', 0);
+			old.find('.navigator .right').css('opacity', 0);
+		}
+		else if (performance == 'slideDown') {
 			container.css('margin-top', -$(window).height());
+			
+			container.find('.navigator .title').css('opacity', 0);
+			container.find('.navigator .left').css('opacity', 0);
+			container.find('.navigator .right').css('opacity', 0);
+			
+			old.find('.navigator .title').css('opacity', 0);
+			old.find('.navigator .left').css('opacity', 0);
+			old.find('.navigator .right').css('opacity', 0);
+		}
 		container.appendTo('body');
 		if (performance == 'leaveRight') {
-			old.css('z-index', 999);
+			old.css('z-index', 100);
 			old.css('margin-left', $(window).width());
+			container.find('.navigator .title').css('margin-left', -$(window).width() / 4);
+			container.find('.navigator .title').css('opacity', 0);
+			container.find('.navigator .left').css('margin-left', -$(window).width() / 4);
+			container.find('.navigator .left').css('opacity', 0);
+			container.find('.navigator .right').css('margin-left', -$(window).width() / 4);
+			container.find('.navigator .right').css('opacity', 0);
+			
+			old.find('.navigator .title').css('margin-left', $(window).width() / 4);
+			old.find('.navigator .title').css('opacity', 0);
+			old.find('.navigator .left').css('margin-left', $(window).width() / 4);
+			old.find('.navigator .left').css('opacity', 0);
+			old.find('.navigator .right').css('margin-left', $(window).width() / 4);
+			old.find('.navigator .right').css('opacity', 0);
 		}
 		else if (performance == 'leaveLeft') {
-			old.css('z-index', 999);
+			old.css('z-index', 100);
 			old.css('margin-left', -$(window).width());
+			container.find('.navigator .title').css('margin-left', $(window).width() / 2);
+			container.find('.navigator .title').css('opacity', 0);
+			container.find('.navigator .left').css('margin-left', $(window).width() / 2);
+			container.find('.navigator .left').css('opacity', 0);
+			container.find('.navigator .right').css('margin-left', $(window).width() / 2);
+			container.find('.navigator .right').css('opacity', 0);
+			
+			old.find('.navigator .title').css('margin-left', -$(window).width() / 4);
+			old.find('.navigator .title').css('opacity', 0);
+			old.find('.navigator .left').css('margin-left', -$(window).width() / 4);
+			old.find('.navigator .left').css('opacity', 0);
+			old.find('.navigator .right').css('margin-left', -$(window).width() / 4);
+			old.find('.navigator .right').css('opacity', 0);
 		}
 		else if (performance == 'leaveUp') {
-			old.css('z-index', 999);
+			old.css('z-index', 100);
 			old.css('margin-top', -$(window).height());
+			
+			container.find('.navigator .title').css('opacity', 0);
+			container.find('.navigator .left').css('opacity', 0);
+			container.find('.navigator .right').css('opacity', 0);
+			
+			old.find('.navigator .title').css('opacity', 0);
+			old.find('.navigator .left').css('opacity', 0);
+			old.find('.navigator .right').css('opacity', 0);
 		}
 		else if (performance == 'leaveDown') {
-			old.css('z-index', 999);
+			old.css('z-index', 100);
 			old.css('margin-top', $(window).height());
+			
+			container.find('.navigator .title').css('opacity', 0);
+			container.find('.navigator .left').css('opacity', 0);
+			container.find('.navigator .right').css('opacity', 0);
+			
+			old.find('.navigator .title').css('opacity', 0);
+			old.find('.navigator .left').css('opacity', 0);
+			old.find('.navigator .right').css('opacity', 0);
 		}
 		container.removeClass('pagecomb-entering');
 		window.history.pushState({ url: url, performance: performance }, '', url);
 		__performance = history.state.performance;
 		setTimeout(function () { 
 			container.css('margin-left', 0); 
-			container.css('margin-top', 0); }, 150);
+			container.css('margin-top', 0); 
+			
+			container.find('.navigator .title').css('opacity', 1);
+			container.find('.navigator .title').css('margin-left', 0);
+			container.find('.navigator .left').css('opacity', 1);
+			container.find('.navigator .left').css('margin-left', 0);
+			container.find('.navigator .right').css('opacity', 1);
+			container.find('.navigator .right').css('margin-left', 0);
+		}, 150);
+			
 		setTimeout(function () { 
 			if (performance.indexOf('leave') >= 0)
 				old.remove(); 
-			container.removeClass('pagecomb-entering');
+			
+			container.find('.navigator').removeClass('alpha');
 			
 			if (__currentControllerScript)
 				UnloadScript(__currentControllerScript);
 			
 			__currentControllerScript = '%/' + ConjectureControllerName(url) + '.js';
 			LoadScript('%/' + ConjectureControllerName(url) + '.js');
-		}, 450);
+		}, 300);
 	});
 	$('#pagecomb-pool').attr('src', url);
 }
