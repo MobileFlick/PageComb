@@ -50,25 +50,22 @@ function LoadStyle(url, alias)
 {
 	if (typeof(alias) == 'undefined')
 		alias = url;
-	$('body').append('<link href="' + ParseUrl(url) + '" rel="stylesheet" id="style_' + alias + '" />');
+	$('body').append('<link href="' + ParseUrl(url) + '" rel="stylesheet" />');
 }
 
-function UnloadStyle(identifier)
+function UnloadStyle(url)
 {
-	$('#style_' + identifier).remove();
-	$('script[src="' + identifier + '"]').remove();
+	$('script[src="' + url + '"]').remove();
 }
 
-function LoadScript(url, alias)
+function LoadScript(url)
 {
-	if (typeof(alias) == 'undefined')
-		alias = url;
 	if ($('script[src="' + ParseUrl(url) + '"]').length > 0)
 	{
 		console.warn(url + ' has been already loaded.');
 		return;
 	}
-	$('body').append('<script src="' + ParseUrl(url) + '" id="script_' + alias + '"></script>');
+	$('body').append('<script src="' + ParseUrl(url) + '"></script>');
 }
 
 function UnloadScript(identifier)
@@ -78,7 +75,6 @@ function UnloadScript(identifier)
 	} catch (err) {
 	}
 	$('script[src="' + ParseUrl(identifier) + '"]').remove();
-	try { $('#script_' + identifier).remove(); } catch (err) { }
 }
 
 $(document).ready(function () {

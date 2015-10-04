@@ -96,7 +96,7 @@ body {
 
 .list-view {
 	margin-left: 1em;
-	table-layout: auto;
+	table-layout: fixed;
     width: calc(100% - 1em);
     border-collapse: collapse;
     border-spacing: 0;
@@ -105,6 +105,9 @@ body {
 .list-view td {
 	font-size: 1em;
 	padding: 1em 0;
+}
+
+.list-view td:last-child {
 	border-bottom: 0.07em solid rgb(200,199,204);
 }
 
