@@ -13,7 +13,7 @@ body {
 	transition: margin 0.2s ease;
 	z-index: 0;
 	box-shadow: 0 0 0.8em rgba(0,0,0,0.2);
-	background-color: rgb(243,243,243);
+	background-color: rgb(239,239,244);
 }
 
 #pagecomb-pool {
@@ -26,10 +26,10 @@ body {
 	left: 0;
 	padding-top: 20px;
 	height: 2.8em;
-	background-color: rgba(247,247,248,0.98);
+	background-color: rgba(245,245,247,0.98);
 	width: 100%;
 	z-index: 500;
-	border-bottom: 0.07em solid #ddd;
+	border-bottom: 0.07em solid rgb(200,199,204);
 	transition: opacity 0.2s ease, margin 0.2s ease;
 }
 
@@ -45,6 +45,7 @@ body {
 	margin: 0 auto;
 	text-align: center;
 	transition: opacity 0.2s ease, margin 0.2s ease;
+	color: rgb(3,3,3);
 }
 
 .navigator .left {
@@ -58,6 +59,7 @@ body {
 	left: 1em;
 	z-index: 501;
 	transition: opacity 0.2s ease, margin 0.2s ease;
+	color: rgb(23,126,251);
 }
 
 .navigator .right {
@@ -71,9 +73,45 @@ body {
 	right: 1em;
 	z-index: 501;
 	transition: opacity 0.2s ease, margin 0.2s ease;
+	color: rgb(23,126,251);
 }
 
 .wrap-cont {
 	margin-top: 2.8em;
 	width: 100%;
+}
+
+.list-view-title {
+	font-size: 0.8em;
+	padding: 0.5em 1em;
+	padding-top: 2.5em;
+	color: rgb(109,109,114);
+}
+
+.list-view-outer {
+	background-color: #fff;
+	border-top: 0.07em solid rgb(200,199,204);
+	border-bottom: 0.07em solid rgb(200,199,204);
+}
+
+.list-view {
+	margin-left: 1em;
+	table-layout: auto;
+    width: calc(100% - 1em);
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.list-view td {
+	font-size: 1em;
+	padding: 1em 0;
+	border-bottom: 0.07em solid rgb(200,199,204);
+}
+
+.list-view tr:last-child td {
+	border-bottom: none;
+}
+
+.inner-content {
+	padding: 0 1em;
 }
