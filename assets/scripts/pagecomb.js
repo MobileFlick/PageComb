@@ -17,7 +17,9 @@ function Back()
 
 function Startup()
 {
-	touch.on('body', 'swiperight', function () {
+	touch.on('body', 'swiperight', function (e) {
+		if ($(e.target).hasClass('navigator') || $(e.target).parents('.navigator').length > 0)
+			return;
 		Back();
 	});
 	
@@ -26,7 +28,6 @@ function Startup()
 	webRootPath = webRootPath.substr(0, webRootPath.length - 13);
 	
 	$('#pagecomb-pool').unbind().load(function () {
-		console.log($('#pagecomb-pool').contents().find('body').html());
 		var viewStart = JSON.parse($('#pagecomb-pool').contents().find('body').html());
 		RedirectTo(ParseUrl(viewStart.home), 'no');
 		__init = true;
@@ -126,10 +127,8 @@ function ConjectureControllerName(url)
 	url = ParseUrl(url);
 	var a = url.indexOf('views/');
 	var b = url.substr(a + 6, url.length - a - 6);
-	console.log(b);
 	var c = b.indexOf('/');
 	var d = b.substr(0, c);
-	console.log(d);
 	return d + 'Controller';
 }
 
