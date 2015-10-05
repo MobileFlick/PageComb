@@ -104,7 +104,7 @@ body {
 
 .list-view td {
 	font-size: 1em;
-	padding: 1em 0;
+	height: 3em;
 }
 
 .list-view td:last-child {
@@ -117,4 +117,17 @@ body {
 
 .inner-content {
 	padding: 0 1em;
+}
+
+.icon-small {
+	width: 1em;
+	height: 1em;
+	font-size: 1em;
+	line-height: 1em;
+	padding: 0.5em;
+	background-color: #000;
+	border-radius: 0.4em;
+	color: #fff;
+	text-align: center;
+	position: relative;
 }
