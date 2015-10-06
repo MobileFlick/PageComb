@@ -15,22 +15,13 @@ function Back()
 	return false;
 }
 
-function OnPageLoading (url)
+function OnPageLoading ()
 {
-	var elem = document.querySelector('input[type="checkbox"]');
-	var init = new Switchery(elem);
-	touch.on('.switchery-button', 'swiperight', function (e) {
-		if ($(e.target).parents('.switchery').length > 0)
-		{
-			$(e.target).parents('.switchery').prev('input[type="checkbox"]').attr('checked', 'checked');
-		}
-	});
-	touch.on('.switchery-button', 'swipeleft', function (e) {
-		if ($(e.target).parents('.switchery').length > 0)
-		{
-			$(e.target).parents('.switchery').prev('input[type="checkbox"]').removeAttr('checked');
-		}
-	});
+	var elem = $('input[type="checkbox"]');
+	for(var i = 0; i < elem.length; i++)
+	{
+		var init = new Switchery(elem[i]);
+	}
 }
 
 function Startup()
@@ -40,7 +31,6 @@ function Startup()
 			return;
 		Back();
 	});
-	
 	
 	webRootPath = document.location.toString();
 	webRootPath = webRootPath.substr(0, webRootPath.length - 13);
@@ -361,7 +351,7 @@ function RedirectTo(url, performance)
 			old.find('.navigator .right').css('opacity', 0);
 		}
 		container.appendTo('body');
-		OnPageLoading(container.selector);
+		OnPageLoading();
 		if (performance == 'leaveRight') {
 			old.css('z-index', 100);
 			old.css('margin-left', $(window).width());

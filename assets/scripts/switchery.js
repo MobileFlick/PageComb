@@ -1623,7 +1623,6 @@ function Switchery(element, options) {
       this.options[i] = defaults[i];
     }
   }
-  console.log($(this.element).next().hasClass('switchery'));
   if (this.element != null && this.element.type == 'checkbox' && $(this.element).next().hasClass('switchery') == false) this.init();
   if (this.isDisabled() === true) this.disable();
 }
@@ -1664,6 +1663,15 @@ Switchery.prototype.create = function() {
   this.switcher.className = this.options.className;
   this.events = events(this.switcher, this);
 
+  touch.on(this.switcher, 'swiperight', function (e) {
+	alert (123);
+  	$(e.target).parents('.switchery').prev('input[type="checkbox"]').attr('checked', 'checked');
+  });
+  touch.on(this.switcher, 'swipeleft', function (e) {
+	alert (321);
+  	$(e.target).parents('.switchery').prev('input[type="checkbox"]').removeAttr('checked');
+  });
+	
   return this.switcher;
 };
 
@@ -1875,13 +1883,13 @@ Switchery.prototype.markedAsSwitched = function() {
  */
 
 Switchery.prototype.init = function() {
-  this.hide();
-  this.show();
-  this.setSize();
-  this.setPosition();
-  this.markAsSwitched();
-  this.handleChange();
-  this.handleClick();
+    this.hide();
+    this.show();
+    this.setSize();
+    this.setPosition();
+    this.markAsSwitched();
+    this.handleChange();
+    this.handleClick();
 };
 
 /**
