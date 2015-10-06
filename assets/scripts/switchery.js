@@ -1623,8 +1623,8 @@ function Switchery(element, options) {
       this.options[i] = defaults[i];
     }
   }
-
-  if (this.element != null && this.element.type == 'checkbox') this.init();
+  console.log($(this.element).next().hasClass('switchery'));
+  if (this.element != null && this.element.type == 'checkbox' && $(this.element).next().hasClass('switchery') == false) this.init();
   if (this.isDisabled() === true) this.disable();
 }
 

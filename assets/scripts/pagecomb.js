@@ -17,7 +17,7 @@ function Back()
 
 function OnPageLoading (url)
 {
-	var elem = $('.container[data-url="' + url +  '"] input[type="checkbox"]').elements;
+	var elem = document.querySelector('input[type="checkbox"]');
 	var init = new Switchery(elem);
 	touch.on('.switchery-button', 'swiperight', function (e) {
 		if ($(e.target).parents('.switchery').length > 0)
