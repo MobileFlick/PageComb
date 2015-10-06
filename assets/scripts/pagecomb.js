@@ -15,6 +15,24 @@ function Back()
 	return false;
 }
 
+function OnPageLoading (url)
+{
+	var elem = $('.container[data-url="' + url +  '"] input[type="checkbox"]').elements;
+	var init = new Switchery(elem);
+	touch.on('.switchery-button', 'swiperight', function (e) {
+		if ($(e.target).parents('.switchery').length > 0)
+		{
+			$(e.target).parents('.switchery').prev('input[type="checkbox"]').attr('checked', 'checked');
+		}
+	});
+	touch.on('.switchery-button', 'swipeleft', function (e) {
+		if ($(e.target).parents('.switchery').length > 0)
+		{
+			$(e.target).parents('.switchery').prev('input[type="checkbox"]').removeAttr('checked');
+		}
+	});
+}
+
 function Startup()
 {
 	touch.on('body', 'swiperight', function (e) {
@@ -282,6 +300,7 @@ function RedirectTo(url, performance)
 		var tmp = $('#pagecomb-pool').contents().find('.container')[0];
 		var container = $(tmp);
 		var old = $($('.container')[$('.container').length - 1]);
+		container.attr('data-url', url);
 		container.addClass('pagecomb-entering');
 		var move = 0;
 		if (performance == 'slideLeft') {
@@ -342,6 +361,7 @@ function RedirectTo(url, performance)
 			old.find('.navigator .right').css('opacity', 0);
 		}
 		container.appendTo('body');
+		OnPageLoading(container.selector);
 		if (performance == 'leaveRight') {
 			old.css('z-index', 100);
 			old.css('margin-left', $(window).width());
