@@ -1664,11 +1664,15 @@ Switchery.prototype.create = function() {
   this.events = events(this.switcher, this);
 
   touch.on(this.switcher, 'swiperight', function (e) {
-	alert (123);
-  	$(e.target).parents('.switchery').prev('input[type="checkbox"]').attr('checked', 'checked');
+  	$(e.target).prev('input[type="checkbox"]').attr('checked', 'checked');
   });
   touch.on(this.switcher, 'swipeleft', function (e) {
-	alert (321);
+  	$(e.target).prev('input[type="checkbox"]').removeAttr('checked');
+  });
+  touch.on(this.jack, 'swiperight', function (e) {
+  	$(e.target).parents('.switchery').prev('input[type="checkbox"]').attr('checked', 'checked');
+  });
+  touch.on(this.jack, 'swipeleft', function (e) {
   	$(e.target).parents('.switchery').prev('input[type="checkbox"]').removeAttr('checked');
   });
 	
