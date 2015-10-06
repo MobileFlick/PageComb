@@ -142,10 +142,11 @@ function PopView(url)
 	var old = $($('.container')[$('.container').length - 1]);
 	var container = $($('.container')[$('.container').length - 2]);
 	container.css('margin-left', 0);
+	container.find('.navigator').removeClass('alpha');
 	var performance = GetInversePerformance(__performance);
 	if (performance == 'slideLeft') {
 		container.css('margin-left', $(window).width());
-		container.find('.navigator').addClass('alpha');
+		old.find('.navigator').addClass('alpha');
 		container.find('.navigator .title').css('margin-left', $(window).width() / 4);
 		container.find('.navigator .title').css('opacity', 0);
 		container.find('.navigator .left').css('margin-left', $(window).width() / 4);
@@ -162,6 +163,7 @@ function PopView(url)
 	}
 	else if (performance == 'slideRight') {
 		container.css('margin-left', -$(window).width());
+		old.find('.navigator').addClass('alpha');
 		container.find('.navigator .title').css('margin-left', -$(window).width() / 4);
 		container.find('.navigator .title').css('opacity', 0);
 		container.find('.navigator .left').css('margin-left', -$(window).width() / 4);
@@ -199,6 +201,7 @@ function PopView(url)
 		old.find('.navigator .right').css('opacity', 0);
 	}
 	else if (performance == 'leaveRight') {
+		old.find('.navigator').addClass('alpha');
 		old.css('z-index', 100);
 		old.css('margin-left', $(window).width());
 		container.find('.navigator .title').css('margin-left', -$(window).width() / 4);
@@ -216,6 +219,7 @@ function PopView(url)
 		old.find('.navigator .right').css('opacity', 0);
 	}
 	else if (performance == 'leaveLeft') {
+		old.find('.navigator').addClass('alpha');
 		old.css('z-index', 100);
 		old.css('margin-left', -$(window).width());
 		container.find('.navigator .title').css('margin-left', $(window).width() / 4);
@@ -256,16 +260,17 @@ function PopView(url)
 		old.find('.navigator .left').css('opacity', 0);
 		old.find('.navigator .right').css('opacity', 0);
 	}
+	
+	container.find('.navigator .title').css('opacity', 1);
+	container.find('.navigator .title').css('margin-left', 0);
+	container.find('.navigator .left').css('opacity', 1);
+	container.find('.navigator .left').css('margin-left', 0);
+	container.find('.navigator .right').css('opacity', 1);
+	container.find('.navigator .right').css('margin-left', 0);
+		
 	setTimeout(function () { 
 		container.css('margin-left', 0); 
 		container.css('margin-top', 0); 
-		
-		container.find('.navigator .title').css('opacity', 1);
-		container.find('.navigator .title').css('margin-left', 0);
-		container.find('.navigator .left').css('opacity', 1);
-		container.find('.navigator .left').css('margin-left', 0);
-		container.find('.navigator .right').css('opacity', 1);
-		container.find('.navigator .right').css('margin-left', 0);
 	}, 150);
 	setTimeout(function () { 
 		if (performance.indexOf('leave') >= 0)
